@@ -181,10 +181,9 @@ def toStr(state):
         for j in i:
             s += str(j)
     return s
-sum1 = 0
+
 #next_permutation
 def AStar1(init,space_location):
-    global sum1
     # 边缘队列初始已有源状态节点
     queue = Queue()
     visit = {}  # 访问过的状态表
@@ -206,7 +205,6 @@ def AStar1(init,space_location):
         # 扩展当前节点
         for act in GetActions(node.state,node.space):
 
-            t5 = time.time()
             # 获取此操作下到达的状态节点并将其加入边缘队列中 1.31s
             if(act == 'a'):
                 near = Node(a(node.state,node.space), node.action + act, node.space)
@@ -223,9 +221,7 @@ def AStar1(init,space_location):
                 visit[near.state] = near.action
 
 
-    print(sum1)
-#3.674146890640259
-#4.550862550735474
+
     return count,visit
 
 def newStr(s,swap):
